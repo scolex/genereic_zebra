@@ -56,7 +56,7 @@ So rule "The Englishman lives in the red house." will be written as
     
     related(englishman, red).
 
-To specifi feature for particular house we user *position* predicate.
+To specifi feature for particular house we use *position* predicate.
 "The Norwegian lives in the first house" is written as
 
     position(norwegian, 1).
