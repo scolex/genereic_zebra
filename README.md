@@ -3,7 +3,7 @@ Generic zebra
 
 Generic zebra puzzle solver in SICStus Prolog using CSP
 
-Inpired by idea from: http://www.hakank.org/sicstus/crossword2.pl
+Inspired by idea from: http://www.hakank.org/sicstus/crossword2.pl
 
 Usage
 =====
@@ -32,7 +32,7 @@ In the original puzzle there were five houses and five features. This solver als
 Features
 --------
 
-When we are designing custom puzzle we need to choose humber of houses. Than we need to set values for features. This is done using special facts (nationalities, colors, cigarettes...). In this example we work with tree houses, so we need to have each feature have tree values:
+When we are designing custom puzzle we need to choose number of houses. Than we need to set values for features. This is done using special facts (nationalities, colors, cigarettes...). In this example we work with tree houses, so we need to have each feature have tree values:
 
       nationalities([englishman,spaniard,ukrainian]).
       colors([red,green,blue]).
@@ -49,7 +49,7 @@ Rules are stored in list and described by prolog fact *rules*.
 
     rules([...]).
     
-In original puzzle there are several rules that are needed to be represented in way that our solver will underestand them.
+In original puzzle there are several rules that are needed to be represented in way that our solver will understand them.
     
 We need to say that values of two features belong to same house. This is done using *related* predicate. 
 So rule "The Englishman lives in the red house." will be written as 
@@ -67,7 +67,7 @@ To say that feature belogs to house next to or to left or right we use *next_to*
 
     next_to(norwegian,blue).
 
-We skip te *middle* rule.
+We skip the *middle* rule.
 
 Modeling and solving technique
 ==============================
@@ -88,4 +88,4 @@ From this we know that second house need to be blue. Blue is on position two on 
 Solving
 -------
 
-Solver is loading rules from rules list and translate them into constrains and these are processed by Prolog.
+Solver is loading rules from the rules list and translate them into constrains and these are processed by Prolog.
