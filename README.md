@@ -69,13 +69,23 @@ To say that feature belogs to house next to or to left or right we use *next_to*
 
 We skip te *middle* rule.
 
-Solving technique
-=================
+Modeling and solving technique
+==============================
 
-This solver is using CSP.
+Features are represented as list of possible values, e.g. nationalities([englishman,spaniard,ukrainian]).
 
-Remember that features are represented as list of possible values, e.g. nationalities([englishman,spaniard,ukrainian]).
+For each feature list there is also another auxiliary list that records feature for houses. 
+First position of this auxiliary list holds value for first house, second position second house and so on. 
+Value on given position is index to appropriate feature list. This means that if we have auxiliary list nations [2, 1, 3] in this the first house live spaniard, second englishman and third ukrainian.
 
-For each feature list there is also another auxiliary list that represents feature for houses. First position of this list stores value for first house, second position second house and so on. Value on given position is index to appropriate feature list. This means that if we have auxiliary list nations [2, 1, 3] in this the first house live spaniard, second englishman and third ukrainian.
+For CSP modeling we use auxiliary feature lists. As we said before each position in this list represents house and its value represent feature value.
+Domains of CSP are indices in features list. These are numbers from {1 .. number of houses}. Every house need to have different value so we use all_distinct to auxiliary feature list.
+
+Other constrains are modeled after rules in puzzle. For example we have rule "The Englishman lives in the red house." and colors feature list looks like *colors([green,blue,red])*.
+We have nations auxiliary list [2, 1, 3]. Englishman have in nationality feature list index 1 so from nations auxiliary list we know that he lives in second house. 
+From this we know that second house need to be blue. Blue is on position two on feature list so we will set first position on color auxiliary list to 2.
+
+Solving
+-------
 
 Solver is loading rules from rules list and translate them into constrains and these are processed by Prolog.
