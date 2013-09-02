@@ -32,7 +32,7 @@ In the original puzzle there were five houses and five features. In this solver 
 Features
 --------
 
-When we are designing custom puzzle we need to choose features and their values. Number of values need to be same as number of houses. In this example we will work with tree houses, so we need to have each feature have tree values:
+When we are designing custom puzzle we need to choose features and their values. Number of values need to be same as number of houses. In this example we will work with tree houses (so we need to have each feature have tree values) and five features:
 
     features([
         [nationalities,[englishman,spaniard,ukrainian]],
@@ -78,30 +78,35 @@ Rule example
 ------------
 
     rules([
-        position(englishman,1), % 1 rules
-        right_to(englishman,green), % 2 rules
-        right_to(green,parliaments), % 3 rules
-        left_to(milk,zebra), % 4 rules
-        related(ukrainian,water), % 5 rules
-        related(tea,fox), % 6 rules
-        left_to(ukrainian,kools), % 7 rules
-        related(spaniard,milk)  % 8 rules
+        position(englishman,1), % 1 rule
+        right_to(englishman,green), % 2 rule
+        right_to(green,parliaments), % 3 rule
+        left_to(milk,zebra), % 4 rule
+        related(ukrainian,water), % 5 rule
+        related(tea,fox), % 6 rule
+        left_to(ukrainian,kools), % 7 rule
+        related(spaniard,milk)  % 8 rule
         ]).
 
-Model and solving technique
-===========================
+Model
+=====
 
-There are N*M variables that are organized to matrix. N is number of features and M is number of houses. Rows corresponds to features, columns to feature values.
+There are N*M variables that are organized to matrix. N is number of features and M is number of houses. Rows corresponds to features, columns to feature values. Solution is matrix where the values are houses.
 
-Domains of all variables corresponds to houses and have values 1..M. Solution will be presented as matrix where the values are houses. 
+Domains of all variables corresponds to houses and have values 1..M.
 
-Features values for each feature need to be set in different house so all values in each row need to be different.
+Features values for each feature need to be set in different houses so all values in each row need to be different.
 
-Will be working with feature table example from above. For example we have variable at position [3,2] with value 3. Numbers [3,2] are indexes to features table and in this case variable represents second value (parliaments) of third feature (cigarettes). So parliaments are smoked in third house.
+Other constrains are given by rules and we will note them in example bellow.
 
-We need to translated rules to constrains. First rule of rules example says that englishman lives in house 1. We find out that englishman have indices  [1,1]. We set variable at position [1,1] to one.
+Model example
+-------------
 
-Than we have rule right_to(englishman,green). This means that englishman lives next to green house. Green have indices [2,2] and house next to englishmans house is house number two. So we set variable at position [2,2] to 2.
+We will be working with feature table example from above. For example we have variable at position [3,2] with value 3. Numbers [3,2] are indexes to features table and in this case variable represents second feature value (parliaments) of third feature (cigarettes). So parliaments are smoked in third house.
+
+We need to translate rules to constrains. First rule of rules example says that englishman lives in house 1. We find out that englishman have indices  [1,1]. We set variable at position [1,1] to 1.
+
+Than we have rule right_to(englishman,green). This means that englishman lives next to green house. Green have indices [2,2] and house next to the englishmans house is house number two. So we set the variable at position [2,2] to 2.
 
 If two feature values are in same house corresponding variables will haves same values.
 
@@ -120,5 +125,3 @@ Solution will be formated to output:
     1: englishman kools red tea fox
     2: ukrainian chesterfields green water zebra
     3: spaniard parliaments blue milk dog
-    
-    
