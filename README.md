@@ -91,18 +91,18 @@ Rule example
 Model
 =====
 
-There are N*M variables that are organized to matrix. N is number of features and M is number of houses. Rows corresponds to features, columns to feature values. Solution is matrix where the values are houses.
+There are N*M variables that are organized into matrix. N is number of features and M is number of houses. Rows corresponds to features, columns to feature values. Solution of the puzzle is reprezentetd as a matrix where the values are houses.
 
 Domains of all variables corresponds to houses and have values 1..M.
 
 Features values for each feature need to be set in different houses so all values in each row need to be different.
 
-Other constrains are given by rules and we will note them in example bellow.
+Other constrains are given by puzzle rules and we will note them in example bellow.
 
 Model example
 -------------
 
-We will be working with feature table example from above. For example we have variable at position [3,2] with value 3. Numbers [3,2] are indexes to features table and in this case variable represents second feature value (parliaments) of third feature (cigarettes). So parliaments are smoked in third house.
+We will be working with feature table example from above. For example we have variable at position [3,2] of matrix with value 3. Numbers [3,2] are indexes to features table and in this case variable represents second feature value (parliaments) of third feature (cigarettes). So parliaments are smoked in third house.
 
 We need to translate rules to constrains. First rule of rules example says that englishman lives in house 1. We find out that englishman have indices  [1,1]. We set variable at position [1,1] to 1.
 
