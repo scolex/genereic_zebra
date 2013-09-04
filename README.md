@@ -125,3 +125,49 @@ Solution will be formated to output:
     1: englishman kools red tea fox
     2: ukrainian chesterfields green water zebra
     3: spaniard parliaments blue milk dog
+    
+    
+Model rules description
+-----------------------
+
+- Two feature values are related and belongs to the same house.  
+
+    A[I,J] == A[K,L]
+    
+    where
+    
+    I,K is index of feature
+    
+    J,L is index of appropriate feature value
+
+
+- The feature value belongs to specific house H  
+
+    A[I,J] == H
+    
+    where
+    
+    I is index of feature
+    
+    J is index of appropriate feature value
+    
+    H is house number
+
+- Feature value belongs to the house right to another feature value house
+    
+    A[I,J] == A[K,L] + 1
+    
+    feature value with indices [I,J] is right to house with feature value whith indices [K,L]
+    
+- Feature value belongs to the house left to another feature value house
+    
+    A[I,J] == A[K,L] - 1
+    
+    feature value with indices [I,J] is left to house with feature value whith indices [K,L]
+
+
+- Feature value belongs to the house nexto to another feature value house
+    
+    A[I,J] == abs(A[K,L] - 1)
+    
+    feature value with indices [I,J] is next to house with feature value whith indices [K,L]
