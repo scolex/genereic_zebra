@@ -163,7 +163,7 @@ Model rules description
     
     A[I,J] == A[K,L] - 1
     
-    feature value with indices [I,J] is left to house with feature value whith indices [K,L]
+    feature value with indices [I,J] is left to house with feature value with indices [K,L]
 
 
 - Feature value belongs to the house nexto to another feature value house
